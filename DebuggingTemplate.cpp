@@ -7,11 +7,7 @@ using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 typedef long double lld;
-
-#define fastio()                        \
-    ios_base::sync_with_stdio(false);   \
-    cin.tie(NULL);                      \
-    cout.tie(0)
+#define MOD 1000000007
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
@@ -32,8 +28,6 @@ typedef long double lld;
 #define Yes cout<<"Yes"<<endl
 #define INIT(a, b) memset(a, b, sizeof(a))
 #define preci(x, y) fixed << setprecision(y) << x
-#define read freopen("input.txt", "r", stdin)
-#define write freopen("output.txt", "w", stdout)
 #define INFI 1e18
 
 #define FOR(i, a, b) for (int i = a; i <= b; i++)
@@ -44,8 +38,17 @@ typedef long double lld;
 
 #ifndef ONLINE_JUDGE
 #define debug(x) cerr << #x <<" "; _print(x); cerr << endl;
+#define fastio()
+#define read freopen("input.txt", "r", stdin)
+#define write freopen("output.txt", "w", stdout)
 #else
 #define debug(x)
+#define fastio()                        \
+    ios_base::sync_with_stdio(false);   \
+    cin.tie(NULL);                      \
+    cout.tie(0)
+#define read
+#define write
 #endif
 
 void _print(ll t) {cerr << t;}
@@ -73,5 +76,8 @@ int main()
 #ifndef ONLINE_JUDGE
 	freopen("Error.txt", "w", stderr);
 #endif
+    fastio();
+    read;
+    write;
 
 }
