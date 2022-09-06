@@ -3,7 +3,7 @@ using namespace std;
 #define ll long long
 #define INFI 1e18
 #define pii pair<ll, ll>
-#define piii pair<ll, pair<ll, ll>>
+#define piii pair<ll, pii>
 #define endl "\n"
 
 int main() {
