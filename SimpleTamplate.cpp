@@ -5,6 +5,7 @@ using namespace std;
 #define pii pair<ll, ll>
 #define piii pair<ll, pii>
 #define endl "\n"
+#define TC ll t;cin>>t;while(t--)
 
 int main() {
     ios_base:: sync_with_stdio(false);
