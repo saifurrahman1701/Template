@@ -8,13 +8,13 @@ using namespace std;
 #define TC ll t;cin>>t;while(t--)
 
 int main() {
-    ios_base:: sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+	ios_base:: sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 
 
 
 
 
-    return 0;
+	return 0;
 }
