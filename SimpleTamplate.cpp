@@ -6,6 +6,7 @@ using namespace std;
 #define piii pair<ll, pii>
 #define endl "\n"
 #define TC ll t;cin>>t;while(t--)
+const ll MOD =  1e9+7;
 
 int main() {
 	ios_base:: sync_with_stdio(false);
