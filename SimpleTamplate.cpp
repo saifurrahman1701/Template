@@ -5,6 +5,7 @@ using namespace std;
 #define piii pair<ll, pii>
 #define endl "\n"
 #define TC ll t;cin>>t;while(t--)
+#define CHECK_BIT(var,pos) (((var)>>(pos)) & 1)
 const ll INFI = 1e18;
 const ll MOD =  1e9+7;
 
