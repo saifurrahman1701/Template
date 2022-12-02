@@ -36,6 +36,8 @@ typedef long double lld;
 #define F0Rd(i, a) for (int i = a-1; i >= 0; i--)
 #define trav(a, x) for (auto &a : x)
 
+#define TC ll t;cin>>t;while(t--)
+
 #ifndef ONLINE_JUDGE
 #define debug(x) cerr << #x <<" "; _print(x); cerr << endl;
 #define fastio()
@@ -74,10 +76,11 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 int main()
 {
 #ifndef ONLINE_JUDGE
-	freopen("Error.txt", "w", stderr);
+  fastio();
 #endif
-    fastio();
-    read;
-    write;
+  read;
+  write;
+  freopen("Error.txt", "w", stderr);
+  
 
 }
