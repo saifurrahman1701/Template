@@ -1,62 +1,61 @@
 /*
 * author: Saifur Rahman
 */
-
 #include<bits/stdc++.h>
 using namespace std;
 
 #define read freopen("input.txt", "r", stdin)
 #define write freopen("output.txt", "w", stdout)
-#define MOD 1000000007
-#define MOD1 1000000051
-#define base 27
 #define MAX 100000
-#define ll long long
-
-/* Double hashing */
+#define ll unsigned long long
+#define base 263
+#define base1 283
+#define fastio()                        \
+    ios_base::sync_with_stdio(false);   \
+    cin.tie(NULL);                      \
+    cout.tie(0)
 
 class Hash {
-    string str;
-    vector<ll> prefixHashValue, prefixHashValue1, po, po1;
-    ll n;
-    void prefixHash() {
-      prefixHashValue[0] = (str[0] - 'a' + 1);
-      prefixHashValue1[0] = (str[0] - 'a' + 1);
-      po[0] = 1;
-      po1[0] = 1;
-      for(ll i=1;i<n;i++) {
-        prefixHashValue[i] = (((prefixHashValue[i-1] * base) % MOD) + (str[i] - 'a'+1)) % MOD;
-        po[i] = (po[i-1] * base) % MOD;
-
-        prefixHashValue1[i] = (((prefixHashValue1[i-1] * base) % MOD1) + (str[i] - 'a'+1)) % MOD1;
-        po1[i] = (po1[i-1] * base) % MOD1;
-      }
+  string str;
+  ll n;
+  vector<ll> prefixHash, power, prefixHash1, power1;
+  void computePrefixHash() {
+    prefixHash[0] = str[0]+1;
+    prefixHash1[0] = str[0]+1;
+    power[0] = 1;
+    power1[0] = 1;
+    for(int i=1;i<n;i++) {
+      prefixHash[i] = prefixHash[i-1] * base + str[i] + 1;
+      prefixHash1[i] = prefixHash1[i-1] * base1 + str[i] + 1;
+      power[i] = power[i-1] * base;
+      power1[i] = power1[i-1] * base1;
     }
-  public:
-    Hash(string str) {
-      this->str = str;
-      n = str.size();
-      prefixHashValue.resize(MAX + 5);
-      po.resize(MAX + 5);
-      prefixHashValue1.resize(MAX + 5);
-      po1.resize(MAX + 5);
-      prefixHash();
-    }
-    ll calculateSubstringHash(ll L, ll R) {
-      if(L == 0) return prefixHashValue[R];
-      ll hashValue = (prefixHashValue[R] - ((prefixHashValue[L-1] * po[R-L+1])%MOD) + MOD) % MOD;
-      return hashValue;
-    }
-    ll calculateSubstringHash1(ll L, ll R) {
-      if(L == 0) return prefixHashValue1[R];
-      ll hashValue = (prefixHashValue1[R] - ((prefixHashValue1[L-1] * po1[R-L+1])%MOD1) + MOD1) % MOD1;
-      return hashValue;
-    }
+  }
+public:
+  Hash(string str) {
+    this->str = str;
+    n = str.size();
+    prefixHash.resize(n);
+    prefixHash1.resize(n);
+    power.resize(n);
+    power1.resize(n);
+    computePrefixHash();
+  }
+  ll calculateHash(ll L, ll R) {
+    if(L==0) return prefixHash[R];
+    return prefixHash[R] - prefixHash[L-1] * power[R-L+1];
+  }
+  ll calculateHash1(ll L, ll R) {
+    if(L == 0) return prefixHash1[R];
+    return prefixHash1[R] - prefixHash1[L-1] * power1[R-L+1];
+  }
 };
 
 int main() {
-  read;
-  write;
+  // read;
+  // write;
+  fastio();
 
+  
   return 0;
-}
+} 
