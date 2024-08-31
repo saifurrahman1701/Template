@@ -10,6 +10,8 @@ using namespace std;
 #define ll unsigned long long
 #define base 263
 #define base1 283
+#define mod 1000000007
+#define mod1 1000000009
 #define fastio()                        \
     ios_base::sync_with_stdio(false);   \
     cin.tie(NULL);                      \
@@ -25,10 +27,10 @@ class Hash {
     power[0] = 1;
     power1[0] = 1;
     for(int i=1;i<n;i++) {
-      prefixHash[i] = prefixHash[i-1] * base + str[i] + 1;
-      prefixHash1[i] = prefixHash1[i-1] * base1 + str[i] + 1;
-      power[i] = power[i-1] * base;
-      power1[i] = power1[i-1] * base1;
+      prefixHash[i] = (prefixHash[i-1] * base + str[i] + 1)%mod;
+      prefixHash1[i] = (prefixHash1[i-1] * base1 + str[i] + 1)%mod1;
+      power[i] = (power[i-1] * base)%mod;
+      power1[i] = (power1[i-1] * base1)%mod1;
     }
   }
 public:
@@ -43,11 +45,11 @@ public:
   }
   ll calculateHash(ll L, ll R) {
     if(L==0) return prefixHash[R];
-    return prefixHash[R] - prefixHash[L-1] * power[R-L+1];
+    return (prefixHash[R] - ((prefixHash[L-1] * power[R-L+1])%mod) + mod)%mod;
   }
   ll calculateHash1(ll L, ll R) {
     if(L == 0) return prefixHash1[R];
-    return prefixHash1[R] - prefixHash1[L-1] * power1[R-L+1];
+    return (prefixHash1[R] - ((prefixHash1[L-1] * power1[R-L+1])%mod1)+mod1)%mod1;
   }
 };
 
